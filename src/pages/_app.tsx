@@ -1,12 +1,11 @@
 import * as React from "react";
-import { AppProps } from "next/app";
-import "src/styles/globals.css";
-import { Roboto } from "next/font/google";
-import { AppCacheProvider } from "@mui/material-nextjs/v16-pagesRouter";
-import { ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
 import Head from "next/head";
+import { AppProps } from "next/app";
+import { AppCacheProvider } from "@mui/material-nextjs/v13-pagesRouter";
+import { ThemeProvider, CssBaseline } from "@mui/material";
 import theme from "../helpers/theme";
+import { Roboto } from "next/font/google";
+import "../styles/globals.css";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -14,11 +13,9 @@ const roboto = Roboto({
   style: ["normal", "italic"],
 });
 
-function MyApp(props: AppProps) {
-  const { Component, pageProps } = props;
-
+export default function MyApp({ Component, pageProps, ...appProps }: AppProps) {
   return (
-    <AppCacheProvider {...props}>
+    <AppCacheProvider {...appProps}>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
@@ -31,5 +28,3 @@ function MyApp(props: AppProps) {
     </AppCacheProvider>
   );
 }
-
-export default MyApp;

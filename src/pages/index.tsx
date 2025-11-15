@@ -1,16 +1,13 @@
 import { Button } from "@mui/material";
-import Head from "next/head";
+import Layout from "../layout/layout";
 
 const IndexPage = () => {
   return (
-    <>
-      <Head>
-        <title>Main page</title>
-      </Head>
-
-      <Button>click</Button>
-    </>
+    <Layout>
+      <Button >Click</Button>
+    </Layout>
   );
 };
 
 export default IndexPage;
+  
