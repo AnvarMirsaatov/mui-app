@@ -4,60 +4,9 @@ import "react-multi-carousel/lib/styles.css";
 import { Avatar, Box, Typography } from "@mui/material";
 import Image from "next/image";
 import { format } from "date-fns";
-const data = [
-  {
-    img: "/react.jpg", // frontend performance optimizatsiyasi uchun maydon
-    title: "React’da komponentlarni samarali tashkil qilish",
-    expert:
-      "Kod strukturasi va komponent ierarxiyasini to‘g‘ri ajratish loyihani boshqarishni osonlashtiradi.",
-    author: {
-      image: "https://picsum.photos/id/1005/100",
-      name: "Anvar Mirsaatov",
-    },
-  },
-  {
-    img: "/seo.jpg", // SEO / Next.js sahifasi uchun mos rasm
-    title: "Next.js’da SEO optimizatsiyasi bo‘yicha amaliy maslahatlar",
-    expert:
-      "Server-side rendering yordamida sahifalar tezroq yuklanadi va qidiruv tizimlari uchun qulay bo‘ladi.",
-    author: {
-      image: "https://picsum.photos/id/1027/100",
-      name: "Dilnoza Karimova",
-    },
-  },
-  {
-    img: "/ux.jpg", // UI/UX dizayn uchun mos rasm
-    title: "UI/UX dizaynda minimalizm kuchi",
-    expert:
-      "Minimal dizayn foydalanuvchi e’tiborini muhim elementlarga qaratadi va interfeysni soddalashtiradi.",
-    author: {
-      image: "https://picsum.photos/id/1001/100",
-      name: "Azizbek Qodirov",
-    },
-  },
-  {
-    img: "/ts.jpg",
-    title: "TypeScript bilan React loyihalarini himoyalash",
-    expert:
-      "TypeScript yordamida xatolarni erta aniqlash va jamoaviy kod sifatini yaxshilash mumkin.",
-    author: {
-      image: "https://picsum.photos/id/1011/100",
-      name: "Malika Islomova",
-    },
-  },
-  {
-    img: "/front.jpg",
-    title: "Frontend performance optimizatsiyasi: real usullar",
-    expert:
-      "Lazy loading, memoization va kod splitting orqali ilovangizni tezlashtiring.",
-    author: {
-      image: "https://picsum.photos/id/1012/100",
-      name: "Rustam Yusupov",
-    },
-  },
-];
+import { blogPosts } from "@/src/config/constants";
 
-const Main = () => {
+const Hero = () => {
   return (
     <Box height={"70vh"} sx={{ background: "white" }}>
       <Carousel
@@ -65,11 +14,15 @@ const Main = () => {
           mobile: {
             breakpoint: { max: 4000, min: 0 },
             items: 1,
-            slidesToSlide: 1, // optional, default to 1.
+            slidesToSlide: 1,
           },
         }}
+        autoPlay={true}
+        autoPlaySpeed={3000}
+        infinite={true}
+        transitionDuration={500}
       >
-        {data?.map((item) => {
+        {blogPosts?.map((item) => {
           return (
             <Box key={item?.title}>
               <Box
@@ -92,7 +45,7 @@ const Main = () => {
                     height: "100%",
                     backgroundColor: "rgba(0,0,0,0.5)", // bu yerda faqat fon shaffof
                   }}
-                > 
+                >
                   <Box
                     position={"relative"}
                     paddingLeft={"50px"}
@@ -116,10 +69,14 @@ const Main = () => {
                       }}
                     >
                       <Avatar alt={item.author.name} src={item.author.image} />
-                      <Typography>{item.author.name}</Typography>
-                      <Typography>
-                        {format(new Date(), "dd.mmm.yyyy")}
-                      </Typography>
+                      <Box>
+                        <Typography sx={{ color: "#a1a1aa" }}>
+                          {item.author.name}
+                        </Typography>
+                        <Typography sx={{ color: "#a1a1aa" }}>
+                          {format(new Date(), "dd.mmm.yyyy")}
+                        </Typography>
+                      </Box>
                     </Box>
                   </Box>
                 </Box>
@@ -132,4 +89,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Hero;

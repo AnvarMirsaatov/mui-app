@@ -13,7 +13,6 @@ import { Box, ListItem, ListItemButton, ListItemText } from "@mui/material";
 import { navItems } from "@/src/config/constants";
 import CloseIcon from "@mui/icons-material/Close";
 import ModeStandbyIcon from "@mui/icons-material/ModeStandby";
-import { blueGrey } from "@mui/material/colors";
 
 interface Props {
   window?: () => Window;

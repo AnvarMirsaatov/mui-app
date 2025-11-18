@@ -6,7 +6,6 @@ import {
   Telegram,
   GitHub,
 } from "@mui/icons-material";
-import { grey, blueGrey } from "@mui/material/colors";
 import { format } from "date-fns";
 const Footer = () => {
   return (
