@@ -6,7 +6,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <Hero />
-      <Box sx={{ display: "flex", gap: 20 }}>
+      <Box sx={{ display: "flex", gap: 20, alignItems: "flex-start" }}>
         <SideBar />
         <Content />
       </Box>
