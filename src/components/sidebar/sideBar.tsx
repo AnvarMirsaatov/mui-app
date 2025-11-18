@@ -15,7 +15,11 @@ import { Fragment } from "react";
 const SideBar = () => {
   return (
     <Box width={"30%"}>
-      <Box position={"sticky"} top={"20px"} sx={{ transition: "all .3s easy" }}>
+      <Box
+        position={"sticky"}
+        top={"100px"}
+        sx={{ transition: "all .3s ease" }}
+      >
         <Box
           padding={"20px"}
           border={"1px solid gray"}
