@@ -6,8 +6,10 @@ const IndexPage = () => {
   return (
     <Layout>
       <Hero />
-      <Box sx={{ display: "flex", gap: 20, alignItems: "flex-start" }}>
-        <SideBar />
+      <Box sx={{ display: "flex", gap: '20px', alignItems: "flex-start" }} >
+        <Box sx={{ transition: "ease 1s", position: "sticky", top: "100px", width: "30%" }}>
+          <SideBar />
+        </Box>
         <Content />
       </Box>
     </Layout>
