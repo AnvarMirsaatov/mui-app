@@ -8,7 +8,7 @@ import { blogPosts } from "@/src/config/constants";
 
 const Hero = () => {
   return (
-    <Box height={"70vh"} sx={{ background: "white" }}>
+    <Box sx={{ background: "white", height: { lg: "70vh", md: "50vh", sm: "50vh", xs: "50vh" } }}>
       <Carousel
         responsive={{
           mobile: {
@@ -26,7 +26,7 @@ const Hero = () => {
           return (
             <Box key={item?.title}>
               <Box
-                sx={{ position: "relative", width: "100% ", height: "70vh" }}
+                sx={{ position: "relative", width: "100% ", height: { lg: "70vh", md: "50vh", sm: "50vh", xs: "50vh" } }}
               >
                 <Image
                   src={item.img}
@@ -49,8 +49,8 @@ const Hero = () => {
                   <Box
                     position={"relative"}
                     paddingLeft={"50px"}
-                    width={"70%"}
                     sx={{
+                      width: { xs: "90%", sm: "80%", md: "70%" },
                       top: "50%",
                       transform: "translateY(-50%)",
                       opacity: "1",
@@ -58,8 +58,34 @@ const Hero = () => {
                     color={"white"}
                     zIndex={999}
                   >
-                    <Typography variant="h2">{item.title}</Typography>
-                    <Typography variant="h5">{item.expert}</Typography>
+                    <Typography
+                      sx={{
+                        fontSize: {
+                          xs: "16px",
+                          sm: "24px",
+                          md: "30px",
+                          lg: "40px",
+                        },
+                        fontWeight: 600,
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        fontSize: {
+                          xs: "16px",   // mobile
+                          sm: "18px",   // small tablets
+                          md: "20px",   // tablets
+                          lg: "24px",   // laptop
+                          xl: "28px",   // large screens
+                        },
+                        fontWeight: 500,
+                      }}
+                    >
+                      {item.expert}
+                    </Typography>
                     <Box
                       sx={{
                         marginTop: "20px",
@@ -84,8 +110,8 @@ const Hero = () => {
             </Box>
           );
         })}
-      </Carousel>
-    </Box>
+      </Carousel >
+    </Box >
   );
 };
 

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Content = () => {
   return (
-    <Box width={"70%"}>
+    <Box sx={{ width: { lg: "100%", md: '100%', sm: '100%', xs: '100%' } }}>
       {blogPosts.map((item) => {
         return (
           <Box
