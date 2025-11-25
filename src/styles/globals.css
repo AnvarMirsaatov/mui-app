@@ -4,3 +4,14 @@ body {
   background: #141414;
   color: #fff;
 }
+
+.img-card {
+  object-fit: cover;
+  transition: transform 1s ease;
+  border-radius: 10px;
+}
+
+.img-card:hover {
+  transform: scale(1.05);
+}
+  

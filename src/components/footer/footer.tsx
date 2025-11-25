@@ -18,6 +18,8 @@ const Footer = () => {
         alignItems: "center",
         backgroundColor: "#141414",
         color: "white",
+        flexDirection: { xs: "column", sm: "row" },
+        gap: { xs: "10px", sm: "0" },
       }}
     >
       <Typography>

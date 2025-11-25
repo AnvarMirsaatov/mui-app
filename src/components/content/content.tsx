@@ -17,18 +17,19 @@ const Content = () => {
               boxShadow: "0 8px 16px rgba(255,255,255,.075)",
             }}
           >
-            <Box position={"relative"} width={"100%"} height={"50vh"}>
+            <Box position={"relative"} width={"100%"} height={{ xs: '30vh', md: "50vh" }} overflow={'hidden'}>
               <Image
                 fill
                 alt={item?.title}
                 src={item?.img}
-                style={{ objectFit: "cover", borderRadius: "10px" }}
+                className="img-card"
               />
+
             </Box>
-            <Typography color="white" variant="h4">
+            <Typography color="white" sx={{ fontSize: { xs: '18px', md: '30px' } }}>
               {item?.title}
             </Typography>
-            <Typography color="rgba(255,255,255,.4)" variant="body1">
+            <Typography color="rgba(255,255,255,.4)" sx={{ fontSize: { xs: '14px', md: '24px' } }}>
               {item?.expert}
             </Typography>
           </Box>

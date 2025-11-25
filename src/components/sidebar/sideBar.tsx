@@ -56,45 +56,87 @@ const SideBar = () => {
         >
           {blogPosts?.map((item) => {
             return (
-              <Box marginTop={"20px"} key={item?.title}>
-                <Box display={"flex"} gap={"20px"} alignItems={"center"}>
+              <Box marginTop={"20px"} key={item?.title} >
+                <Box
+                  display="flex"
+                  gap="20px"
+                  alignItems="center"
+                  flexDirection={{ lg: "row", sm: "row", xs: "column" }}
+                  sx={{
+                    position: "relative",
+                    borderRadius: "10px",
+                    backgroundImage: { xs: `url(${item?.img})`, sm: "none" },
+                    backgroundSize: { xs: "cover", sm: "unset" },
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    padding: { xs: "20px", sm: "0" },
+                    overflow: "hidden",
+                  }}
+                >
+                  <Box
+                    sx={{
+                      display: { xs: "block", sm: "none" },
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      backgroundColor: "rgba(0,0,0,0.7)",
+                      borderRadius: "10px",
+                      zIndex: 1,
+                    }}
+                  />
                   <Image
                     src={item?.img}
                     alt={item?.title}
                     width={100}
                     height={200}
-                    style={{ objectFit: "cover", borderRadius: "8px" }}
+                    style={{
+
+                      zIndex: '2',
+                      objectFit: "cover",
+                      borderRadius: "8px",
+                    }}
+                    className="card-img"
                   />
+
                   <Box
                     sx={{
                       display: "flex",
                       flexDirection: "column",
+                      width: { xs: "100%", sm: "auto" },
+                      textAlign: { xs: "center", sm: "left" },
+                      position: "relative",
+                      zIndex: 2,
+                      color: { xs: "white", sm: "inherit" }, // XS: oq text
                     }}
                   >
                     <Typography variant="body1">{item?.title}</Typography>
+
                     <Box
                       sx={{
-                        marginTop: "20px",
+                        marginTop: "5px",
                         display: "flex",
                         alignItems: "center",
+                        justifyContent: { xs: "center", sm: "flex-start" },
                         gap: "10px",
+                        flexDirection: "row"
                       }}
                     >
-                      <Avatar
-                        alt={item.author.name}
-                        src={item.author.image}
-                      />
-                      <Box>
-                        <Typography sx={{ color: "#a1a1aa" }}>
+                      <Avatar alt={item.author.name} src={item.author.image} />
+                      <Box sx={{ textAlign: { xs: "center", sm: "left" } }}>
+                        <Typography sx={{ color: { xs: "#e5e5e5", sm: "#a1a1aa" } }}>
                           {item.author.name}
                         </Typography>
-                        <Typography sx={{ color: "#a1a1aa" }}>
-                          {format(new Date(), "dd.mmm.yyyy")}
+                        <Typography sx={{ color: { xs: "#e5e5e5", sm: "#a1a1aa" } }}>
+                          {format(new Date(), "dd.MMM.yyyy")}
                         </Typography>
                       </Box>
                     </Box>
                   </Box>
                 </Box>
+
+
                 <Divider
                   sx={{
                     width: "100%",

@@ -8,7 +8,7 @@ import { blogPosts } from "@/src/config/constants";
 
 const Hero = () => {
   return (
-    <Box sx={{ background: "white", height: { lg: "70vh", md: "50vh", sm: "50vh", xs: "50vh" } }}>
+    <Box sx={{ background: "white", height: "70vh" }}>
       <Carousel
         responsive={{
           mobile: {
@@ -26,7 +26,7 @@ const Hero = () => {
           return (
             <Box key={item?.title}>
               <Box
-                sx={{ position: "relative", width: "100% ", height: { lg: "70vh", md: "50vh", sm: "50vh", xs: "50vh" } }}
+                sx={{ position: "relative", width: "100% ", height: "70vh" }}
               >
                 <Image
                   src={item.img}

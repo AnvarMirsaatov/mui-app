@@ -123,6 +123,8 @@ const Navbar = ({ window }: Props) => {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
+              backgroundColor: "#141414",
+              color: "white",
             },
           }}
         >
