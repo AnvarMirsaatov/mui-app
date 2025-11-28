@@ -15,7 +15,7 @@ export const navItems = [
 
 export const blogPosts = [
   {
-    img: "/react.jpg", 
+    img: "/react.jpg",
     title: "React’da komponentlarni samarali tashkil qilish",
     expert:
       "Kod strukturasi va komponent ierarxiyasini to‘g‘ri ajratish loyihani boshqarishni osonlashtiradi.",
@@ -25,7 +25,7 @@ export const blogPosts = [
     },
   },
   {
-    img: "/seo.jpg", 
+    img: "/seo.jpg",
     title: "Next.js’da SEO optimizatsiyasi bo‘yicha amaliy maslahatlar",
     expert:
       "Server-side rendering yordamida sahifalar tezroq yuklanadi va qidiruv tizimlari uchun qulay bo‘ladi.",
@@ -35,7 +35,7 @@ export const blogPosts = [
     },
   },
   {
-    img: "/ux.jpg", 
+    img: "/ux.jpg",
     title: "UI/UX dizaynda minimalizm kuchi",
     expert:
       "Minimal dizayn foydalanuvchi e’tiborini muhim elementlarga qaratadi va interfeysni soddalashtiradi.",

@@ -1,8 +1,30 @@
 import { Box, Button } from "@mui/material";
 import Layout from "../layout/layout";
 import { Content, Hero, SideBar } from "../components";
+import { useEffect } from "react";
+import { BlogService } from "../services/blog.service";
 
-const IndexPage = () => {
+const IndexPage = (props) => {
+
+  // useEffect(() => {
+  //   BlogService.getAllBlogs()
+  //     .then(res => {
+  //       console.log("FULL GRAPHQL RESULT:", JSON.stringify(res, null, 2));
+  //     })
+  //     .catch(err => console.error("GRAPHQL ERROR:", err));
+  // }, []);
+
+  // useEffect(() => {
+  //   BlogService.getAllBlogs()
+  //     .then(res => console.log("Blogs:", res))
+  //     .catch(err => console.error("GRAPHQL ERROR:", err));
+  // }, []);
+
+
+  const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT as string;
+  console.log('graphqlAPI =>', graphqlAPI);
+
+
   return (
     <Layout>
       <Hero />
@@ -17,3 +39,13 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+
+export const getServerSideProps = async () => {
+  return {
+    props: {
+      title: "Home Page",
+      description: "Welcome to the Home Page",
+    },
+  };
+}
