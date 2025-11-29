@@ -3,8 +3,10 @@ import Layout from "../layout/layout";
 import { Content, Hero, SideBar } from "../components";
 import { useEffect } from "react";
 import { BlogService } from "../services/blog.service";
+import { blogPosts } from "../config/constants";
 
-const IndexPage = (props) => {
+const IndexPage = () => {
+  // const IndexPage = (props) => {
 
   // useEffect(() => {
   //   BlogService.getAllBlogs()
@@ -19,6 +21,10 @@ const IndexPage = (props) => {
   //     .then(res => console.log("Blogs:", res))
   //     .catch(err => console.error("GRAPHQL ERROR:", err));
   // }, []);
+
+  useEffect(() => {
+    BlogService.getAllBlogs().then(data => { console.log(data) })
+  }, [])
 
 
   const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT as string;
@@ -41,11 +47,10 @@ const IndexPage = (props) => {
 export default IndexPage;
 
 
-export const getServerSideProps = async () => {
-  return {
-    props: {
-      title: "Home Page",
-      description: "Welcome to the Home Page",
-    },
-  };
-}
+// export const getServerSideProps = async () => {
+//   return {
+//     props: {
+//       mesage: "Hello from server side",
+//     },
+//   };
+// }
