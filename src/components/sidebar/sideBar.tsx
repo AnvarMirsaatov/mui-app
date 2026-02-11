@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import { format } from "date-fns";
-
 import { Fragment } from "react";
 
 const SideBar = () => {
