@@ -1,8 +1,20 @@
-import createEmotionServer from '@emotion/server/create-instance';
-import Document, { Html, Head, Main, NextScript } from 'next/document';
-import createEmotionCache from '../createEmotionCache';
+import createEmotionServer from "@emotion/server/create-instance";
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+  DocumentInitialProps,
+} from "next/document";
+import { ReactElement } from "react";
+import createEmotionCache from "../createEmotionCache";
 
-export default class MyDocument extends Document {
+interface MyDocumentProps extends DocumentInitialProps {
+  emotionStyleTags: ReactElement[];
+}
+
+export default class MyDocument extends Document<MyDocumentProps> {
   render() {
     return (
       <Html lang="en">
@@ -18,7 +30,9 @@ export default class MyDocument extends Document {
   }
 }
 
-MyDocument.getInitialProps = async (ctx) => {
+MyDocument.getInitialProps = async (
+  ctx: DocumentContext
+): Promise<MyDocumentProps> => {
   const originalRenderPage = ctx.renderPage;
 
   const cache = createEmotionCache();
@@ -26,7 +40,7 @@ MyDocument.getInitialProps = async (ctx) => {
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App) =>
+      enhanceApp: (App: any) =>
         function EnhanceApp(props) {
           return <App emotionCache={cache} {...props} />;
         },
@@ -35,9 +49,10 @@ MyDocument.getInitialProps = async (ctx) => {
   const initialProps = await Document.getInitialProps(ctx);
 
   const emotionStyles = extractCriticalToChunks(initialProps.html);
+
   const emotionStyleTags = emotionStyles.styles.map((style) => (
     <style
-      data-emotion={`${style.key} ${style.ids.join(' ')}`}
+      data-emotion={`${style.key} ${style.ids.join(" ")}`}
       key={style.key}
       dangerouslySetInnerHTML={{ __html: style.css }}
     />
